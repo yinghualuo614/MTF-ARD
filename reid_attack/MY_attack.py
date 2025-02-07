@@ -1,7 +1,3 @@
-"""
-author: Huiwang Liu
-e-mail: liuhuiwang1025@outlook.com
-"""
 
 from functools import partial
 
