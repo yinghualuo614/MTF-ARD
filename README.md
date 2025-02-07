@@ -27,11 +27,11 @@ python reid-MTF-ARD.py
 
 ## Acknowledgements
 
-- [light-reid](https://github.com/wangquanan/light-reid)
-- [ABD-Net](https://github.com/VITA-Group/ABD-Net) 
-- [AGW-Net](https://github.com/mangye16/RelD-Survey/) 
-- [AP-Net](https://github.com/CHENGY12/APNet) 
-- [DeepPersonReid](https://github.com/KaiyangZhou/deep-person-reid) 
-- [Fast-ReID](https://github.com/JDAI-CV/fast-reid)
-- [ReidStrongBaseline](https://github.com/michuanhaohao/reid-strong-baseline)
-- [TransReID](https://github.com/damo-cv/TransReID)
+- **[light-reid](https://github.com/wangquanan/light-reid)**
+- **[ABD-Net](https://github.com/VITA-Group/ABD-Net)**
+- **[AGW-Net](https://github.com/mangye16/RelD-Survey/)**
+- **[AP-Net](https://github.com/CHENGY12/APNet)**
+- **[DeepPersonReid](https://github.com/KaiyangZhou/deep-person-reid)**
+- **[Fast-ReID](https://github.com/JDAI-CV/fast-reid)**
+- **[ReidStrongBaseline](https://github.com/michuanhaohao/reid-strong-baseline)**
+- **[TransReID](https://github.com/damo-cv/TransReID)**
