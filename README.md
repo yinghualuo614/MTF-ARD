@@ -7,7 +7,7 @@
 | Dukemtmc-reid  | [Download](https://drive.google.com/file/d/1jjE85dRCMOgRtvJ5RQV9-Afs-2_5dY3O/view)      |
 
 ## Models
-The teacher models are trained using the PGD method and are available for download on [Google Drive](https://drive.google.com/your-link-here).
+The teacher models are trained using the PGD method and are available for download on [Google Drive]([https://drive.google.com/your-link-here](https://drive.google.com/file/d/1AveC0s5LuWQVb5zGsMo78IWg64g6hZ9q/view?usp=sharing)).
 
 ## Requirements
 - CUDA 12.1 (or later)
