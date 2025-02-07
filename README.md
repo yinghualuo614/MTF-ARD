@@ -1,9 +1,3 @@
-##Robust Person Re-identification via Multi-Teacher Adversarial Distillation with Logit Fusion
-##Datasets
-  | Datasets   | Link   |
-  |-------|-------|
-  | Market-1501 | [Download](https://drive.google.com/file/d/0B8-rUzbwVRk0c054eEozWG9COHM/view?resourcekey=0-8nyl7K9_x37HlQm34MmrYQ) |
-  | Dukemtmc-reid | [Download](https://drive.google.com/file/d/1jjE85dRCMOgRtvJ5RQV9-Afs-2_5dY3O/view) |
 ## Robust Person Re-identification via Multi-Teacher Adversarial Distillation with Logit Fusion
 
 ## Datasets
