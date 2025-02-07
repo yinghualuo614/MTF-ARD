@@ -1,8 +1,3 @@
-"""
-author: Huiwang Liu
-e-mail: liuhuiwang1025@outlook.com
-"""
-
 import os
 import sys
 
