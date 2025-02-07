@@ -25,13 +25,13 @@ Before starting the training, update the weight path of the teacher model in lin
 python reid-MTF-ARD.py
 ```
 
-## Acknowledgements
+## Acknowledge
 
-- **[light-reid](https://github.com/wangquanan/light-reid)**
-- **[ABD-Net](https://github.com/VITA-Group/ABD-Net)**
-- **[AGW-Net](https://github.com/mangye16/RelD-Survey/)**
-- **[AP-Net](https://github.com/CHENGY12/APNet)**
-- **[DeepPersonReid](https://github.com/KaiyangZhou/deep-person-reid)**
-- **[Fast-ReID](https://github.com/JDAI-CV/fast-reid)**
-- **[ReidStrongBaseline](https://github.com/michuanhaohao/reid-strong-baseline)**
-- **[TransReID](https://github.com/damo-cv/TransReID)**
+- [light-reid] https://github.com/wangguanan/light-reid
+- [ABD-Net] https://github.com/VITA-Group/ABD-Net
+- [AGW-Net] https://github.com/mangye16/ReID-Survey/
+- [AP-Net] https://github.com/CHENGY12/APNet
+- [DeepPersonReid] https://github.com/KaiyangZhou/deep-person-reid
+- [Fast-ReID] https://github.com/JDAI-CV/fast-reid
+- [ReidStrongBaseline] https://github.com/michuanhaohao/reid-strong-baseline
+- [TransReID] https://github.com/damo-cv/TransReID
