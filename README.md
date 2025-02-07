@@ -23,6 +23,7 @@ Before starting the training, update the weight path of the teacher model in lin
 
 ```bash
 python reid-MTF-ARD.py
+```
 
 ## Acknowledgements
 
