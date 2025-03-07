@@ -1,7 +1,7 @@
 ## Robust Person Re-identification via Multi-Teacher Adversarial Distillation with Logit Fusion
 The code of paper  Robust Person Re-identification via Multi-Teacher Adversarial Distillation with Logit Fusion in The Visual Computer
 ![MTF-ARD Method](https://github.com/yinghualuo614/MTF-ARD/blob/master/reid_attack/MTF-ARD-method.png)
-We propose  Multi-Teacher Adversarial Distillation with Logit Fusion (MTF-ARD), a novel method that leverages multiple adversarial teacher models to provide comprehensive and student-friendly guidance. Our method adaptively assigns weights to different teacher models based on their predictive confidence and their similarity with the student model. Specifically, the predictive confidence is obtained based on the Triplet loss between the predicted distribution of the teacher model and the ground-truth, and the similarity is assessed through the channel-wise cosine similarity between the final layer features of the teacher model and the student model. By integrating information from multiple teacher models, the student model is transferred the richer and more robust adversarial knowledge, and its generalization ability against adversarial attacks is significantly improved.
+We propose  Multi-Teacher Adversarial Distillation with Logit Fusion (MTF-ARD), a novel method that leverages multiple adversarial teacher models to provide comprehensive and student-friendly guidance. Our method adaptively assigns weights to different teacher models based on their predictive confidence and their similarity with the student model. Specifically, the predictive confidence is obtained based on the Triplet loss between the predicted distribution of the teacher model and the ground-truth, and the similarity is assessed through the channel-wise cosine similarity between the final layer features of the teacher model and the student model. By integrating information from multiple teacher models, the student model is transferred the richer and more robust adversarial knowledge, and its generalization ability against adversarial attacks is significantly improved. More details can be found in the [Reid_MTF-ARD.py](https://github.com/yinghualuo614/MTF-ARD/blob/master/reid_MTF-ARD.py).
 ## Datasets
 | Datasets       | Link                                                                                   |
 |----------------|----------------------------------------------------------------------------------------|
@@ -47,20 +47,19 @@ python eval_attack.py
 
 ## Experiment
 The following is the experimental demonstration of ResNet18 as a student model on the Market-1501 dataset.
-| 防御方法   | Clean (Rank-1) | Clean (mAP) | FGSM (Rank-1) | FGSM (mAP) | MI-FGSM (Rank-1) | MI-FGSM (mAP) | PGD (Rank-1) | PGD (mAP) | BIM (Rank-1) | BIM (mAP) |
-|------------|----------------|-------------|---------------|------------|------------------|---------------|--------------|-----------|--------------|-----------|
-| No Defense | ​**87.6%** | ​**70.7%** | 8.0%      | 5.4%      | 0.2%      | 0.1%      | 0.0%      | 0.1%      | 0.0%      | 0.1%       |
-| PGD_AT     | 65.0%     | 39.6%     | 57.8%     | 34.0%     | 54.2%     | 31.1%     | 52.2%     | 30.1%     | 50.6%     | 20.9%      |
-| ARD        | 79.8%     | 57.2%     | 69.4%     | 47.1%     | 59.0%     | 38.8%     | 53.4%     | 34.8%     | 52.8%     | 35.1%      |
-| IAD        | 77.8%     | 55.9%     | 69.0%     | 46.5%     | 59.8%     | 39.5%     | 55.8%     | 35.3%     | 56.6%     | 37.2%      |
-| RSLAD      | 77.2%     | 54.4%     | 69.4%     | 46.2%     | 60.6%     | 40.5%     | 54.0%     | 35.9%     | 54.2%     | 35.7%      |
-| MTARD      | 81.8%     | 61.1%     | 72.4%     | 52.1%     | 59.0%     | 43.0%     | 56.2%     | 39.9%     | 55.2%     | 41.0%      |
-| AdaAD      | 75.0%     | 53.4%     | 65.8%     | 44.3%     | 58.4%     | 38.1%     | 56.2%     | 35.9%     | 53.8%     | 35.7%      |
-| DGAD       | 75.2%     | 52.5%     | 67.2%     | 44.7%     | 60.0%     | 38.4%     | 56.8%     | 36.2%     | 55.8%     | 35.6%      |
-| Fair-MTARD | 74.8%     | 52.2%     | 66.4%     | 45.3%     | 63.4%     | 40.3%     | 60.6%     | 37.9%     | 59.2%     | 37.9%      |
-| B-MTARD    | 81.0%     | 60.4%     | 72.4%     | 51.4%     | 61.6%     | 43.0%     | 55.0%     | 39.8%     | 57.4%     | 40.1%      |
-| AVER       | 79.6%     | 59.4%     | 71.0%     | 49.7%     | 60.2%     | 42.4%     | 56.8%     | 39.9%     | 56.2%     | 39.6%      |
-| MTF-ARD    | 81.2%     | 61.9%     | ​**73.2%** | ​**53.8%** | ​**66.0%** | ​**47.3%** | ​**62.8%** | ​**44.0%** | ​**60.2%** | ​**43.2%**  |
+| 防御方法   |  FGSM (Rank-1) | FGSM (mAP) | MI-FGSM (Rank-1) | MI-FGSM (mAP) | PGD (Rank-1) | PGD (mAP) | BIM (Rank-1) | BIM (mAP) |
+|------------|---------------|------------|------------------|---------------|--------------|-----------|--------------|-----------|
+| PGD_AT     | 57.8%     | 34.0%     | 54.2%     | 31.1%     | 52.2%     | 30.1%     | 50.6%     | 20.9%      |
+| ARD        | 69.4%     | 47.1%     | 59.0%     | 38.8%     | 53.4%     | 34.8%     | 52.8%     | 35.1%      |
+| IAD        | 69.0%     | 46.5%     | 59.8%     | 39.5%     | 55.8%     | 35.3%     | 56.6%     | 37.2%      |
+| RSLAD      | 69.4%     | 46.2%     | 60.6%     | 40.5%     | 54.0%     | 35.9%     | 54.2%     | 35.7%      |
+| MTARD      | 72.4%     | 52.1%     | 59.0%     | 43.0%     | 56.2%     | 39.9%     | 55.2%     | 41.0%      |
+| AdaAD      | 65.8%     | 44.3%     | 58.4%     | 38.1%     | 56.2%     | 35.9%     | 53.8%     | 35.7%      |
+| DGAD       | 67.2%     | 44.7%     | 60.0%     | 38.4%     | 56.8%     | 36.2%     | 55.8%     | 35.6%      |
+| Fair-MTARD | 66.4%     | 45.3%     | 63.4%     | 40.3%     | 60.6%     | 37.9%     | 59.2%     | 37.9%      |
+| B-MTARD    | 72.4%     | 51.4%     | 61.6%     | 43.0%     | 55.0%     | 39.8%     | 57.4%     | 40.1%      |
+| AVER       | 71.0%     | 49.7%     | 60.2%     | 42.4%     | 56.8%     | 39.9%     | 56.2%     | 39.6%      |
+| MTF-ARD    | **73.2%** | ​**53.8%** | ​**66.0%** | ​**47.3%** | ​**62.8%** | ​**44.0%** | ​**60.2%** | ​**43.2%**  |
 
 ## Relevant links
 
@@ -72,3 +71,7 @@ The following is the experimental demonstration of ResNet18 as a student model o
 - [Fast-ReID] https://github.com/JDAI-CV/fast-reid
 - [ReidStrongBaseline] https://github.com/michuanhaohao/reid-strong-baseline
 - [TransReID] https://github.com/damo-cv/TransReID
+
+## References
+
+If you use any part of this code in your research, please cite our paper:
