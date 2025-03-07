@@ -26,9 +26,9 @@ The codes are evaluated under the following environment settings and libraries:
 
 ## Configuration files
 
-- For path settings with datasets, see [pytorch_reid_models/reid_models/data/datasets/dataset_paths.yaml](reid_models/data/datasets/dataset_paths.yaml)
-- For model parameters setting, see [pytorch_reid_models/reid_models/modeling/models_config.yaml](reid_models/modeling/models_config.yaml)
-- For fast-reid models settings, see [pytorch_reid_models/reid_models/modeling/third_party_models/FastReID/configs](reid_models/modeling/third_party_models/FastReID/configs)
+- For path settings with datasets, see [pytorch_reid_models/reid_models/data/datasets/dataset_paths.yaml](pytorch_reid_models/reid_models/data/datasets/dataset_paths.yaml)
+- For model parameters setting, see [pytorch_reid_models/reid_models/modeling/models_config.yaml](pytorch_reid_models/reid_models/modeling/models_config.yaml)
+- For fast-reid models settings, see [pytorch_reid_models/reid_models/modeling/third_party_models/FastReID/configs](pytorch_reid_models/reid_models/modeling/third_party_models/FastReID/configs)
   
 
 ## Train
