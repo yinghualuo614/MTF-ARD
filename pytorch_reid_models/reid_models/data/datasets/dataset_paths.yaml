@@ -1,7 +1,7 @@
 # default dataset paths
 # please udpate to your own paths
 
-root_path: &root_path  "/data3/yjb/experiment/data/"#"/data/workspace_zhangh/code/GitHub/RobustReidResearch-main/datasets"
+root_path: &root_path  "/data3/yjb/experiment/data/"
 
 market1501:
   path: *root_path
