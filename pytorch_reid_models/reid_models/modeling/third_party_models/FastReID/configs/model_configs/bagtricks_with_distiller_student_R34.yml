@@ -1,0 +1,16 @@
+_BASE_: ../Base-bagtricks.yml
+
+MODEL:
+  HEADS:
+    NUM_CLASSES: 751
+  BACKBONE:
+    NAME: build_resnet_backbone_distill
+    DEPTH: 34x
+    FEAT_DIM: 512
+    WITH_NL: False
+
+DATASETS:
+  NAMES: ("Market1501",)
+  TESTS: ("Market1501",)
+
+OUTPUT_DIR: logs/market1501/bagtricks_with_distiller_R34

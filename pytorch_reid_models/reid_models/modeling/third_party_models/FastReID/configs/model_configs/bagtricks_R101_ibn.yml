@@ -1,0 +1,19 @@
+_BASE_: ../Base-bagtricks.yml
+
+MODEL:
+  BACKBONE:
+    NAME: build_resnet_backbone_distill
+    DEPTH: 101x
+    WITH_IBN: True
+  HEADS:
+    NUM_CLASSES: 751
+#    NUM_CLASSES: 702
+
+DATASETS:
+  NAMES: ("Market1501",)
+  TESTS: ("Market1501",)
+#   NAMES: ("Dukemtmcreid",)
+#   TESTS: ("Dukemtmcreid",)
+
+OUTPUT_DIR: logs/market1501/bagtricks_R101_ibn
+#OUTPUT_DIR: logs/dukemtmcreid/bagtricks_R101_ibn
