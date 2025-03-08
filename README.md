@@ -75,3 +75,4 @@ The following is the experimental demonstration of ResNet18 as a student model o
 ## References
 
 If you use any part of this code in your research, please cite our paper:
+Citations are updated when the preprint version of our article is published on Research Square.
