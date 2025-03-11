@@ -1,8 +1,3 @@
-"""
-author: Huiwang Liu
-e-mail: liuhuiwang1025@outlook.com
-"""
-
 import torch
 from torch.utils import data
 from torchvision.utils import save_image
