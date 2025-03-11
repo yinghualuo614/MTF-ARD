@@ -31,7 +31,7 @@ The codes are evaluated under the following environment settings and libraries:
   
 
 ## Train
-Before training, you need to update the teacher model weight path in lines 360-368 to the correct path, select the dataset to be run in line 379, select the name of the student model to be built in line 396, and then run the script with the command:
+Before training, you need to update the teacher model weight path in lines 368-376 to the correct path, select the dataset to be run in line 389, select the name of the student model to be built in line 404, and then run the script with the command:
 
 ```bash
 python reid_MTF-ARD.py
