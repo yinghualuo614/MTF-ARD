@@ -1,7 +1,5 @@
 ## Robust Person Re-identification via Multi-Teacher Adversarial Distillation with Logit Fusion
-The code of paper  Robust Person Re-identification via Multi-Teacher Adversarial Distillation with Logit Fusion in The Visual Computer
-![MTF-ARD Method](https://github.com/yinghualuo614/MTF-ARD/blob/master/reid_attack/MTF-ARD-method.png)
-We propose  Multi-Teacher Adversarial Distillation with Logit Fusion (MTF-ARD), a novel method that leverages multiple adversarial teacher models to provide comprehensive and student-friendly guidance. Our method adaptively assigns weights to different teacher models based on their predictive confidence and their similarity with the student model. Specifically, the predictive confidence is obtained based on the Triplet loss between the predicted distribution of the teacher model and the ground-truth, and the similarity is assessed through the channel-wise cosine similarity between the final layer features of the teacher model and the student model. By integrating information from multiple teacher models, the student model is transferred the richer and more robust adversarial knowledge, and its generalization ability against adversarial attacks is significantly improved. More details can be found in the [Reid_MTF-ARD.py](https://github.com/yinghualuo614/MTF-ARD/blob/master/reid_MTF-ARD.py).
+This repository is the official PyTorch implementation of "Robust Person Re-identification via Multi-Teacher Adversarial Distillation with Logit Fusion" , submitted to The Visual Computer.
 ## Datasets
 | Datasets       | Link                                                                                   |
 |----------------|----------------------------------------------------------------------------------------|
