@@ -1,4 +1,3 @@
-
 from functools import partial
 
 import kornia as K
