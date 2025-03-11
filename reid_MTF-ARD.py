@@ -1,4 +1,3 @@
-
 import os
 import sys
 import time
@@ -170,6 +169,8 @@ class CalWeight(nn.Module):
         super(CalWeight, self).__init__()
 
         s_channel = feat_s.shape[1]
+        if len(feat_t_list) == 0:
+            raise ValueError("feat_t_list is empty. Check data loading or preprocessing.")
         for i in range(len(feat_t_list)):
             t_channel = feat_t_list[i].shape[1]
             setattr(self, 'embed'+str(i), Embed(s_channel, t_channel, 2, False))
@@ -226,14 +227,6 @@ class Embed(nn.Module):
     def forward(self, x):
         x = self.transfer(x)
         return x
-
-
-def _kldiv_test(y_s, y_t, t):
-    p_s = F.log_softmax(y_s / t, dim=1)
-    p_t = F.softmax(y_t / t, dim=1)
-    loss = (F.kl_div(p_s, p_t, reduction="none") * (t ** 2)).sum(-1)
-
-    return loss
 
 
 def _kldiv(y_s, y_t, t):
@@ -318,7 +311,22 @@ def train_overhaul(
 
         feat_t_list = []
         logit_t_list = []
-
+        # 对抗图片输入到对抗老师网络中
+        with torch.no_grad():
+            for model_t in model_t_list:
+                if model_t.name == 'bagtricks_inception_v4_fastreid':
+                    teacher_adv_logits, teacher_adv_feat = model_t(adv_imgs)
+                    teacher_adv_feats = model_t(adv_imgs, is_feat=False, is_incv4=True)
+                else:
+                    teacher_adv_logits, teacher_adv_feat, teacher_adv_feats = model_t(adv_imgs, overhaul=True)
+                teacher_adv_feat = teacher_adv_feat.detach()
+                if model_t.name == 'bagtricks_inception_v4_fastreid':
+                    teacher_adv_feats = [teacher_adv_feats.detach()]
+                else:
+                    teacher_adv_feats = [f.detach() for f in teacher_adv_feats]
+                teacher_adv_feats.append(teacher_adv_feat)
+                feat_t_list.append(teacher_adv_feats)
+                logit_t_list.append(teacher_adv_logits)
 
         loss_triplet_t_list = [triplet_loss(feat_t[-1], pids, margin=0.3, norm_feat=False, hard_mining=True, reduction='none') for feat_t in feat_t_list]
         loss_t = torch.stack(loss_triplet_t_list, dim=0)
@@ -438,6 +446,15 @@ def main():
     student_model.eval()
     for model_t in model_t_list:
         model_t.eval()
+    for model_t in model_t_list:
+        if model_t.name == 'bagtricks_inception_v4_fastreid':
+            # feat_t, _ = feature_Inception(model_t, data)
+            feat_t = model_t(data, is_feat=False, is_incv4=True)
+            chongfu = feat_t
+            feat_t = [chongfu, feat_t]
+        else:
+            feat_t, _ = model_t(data, is_feat=True)
+        feat_t_list.append(feat_t)
     feat_s, _ = student_model(data, is_feat=True)
 
     feat_t_list = [feat_t[-1] for feat_t in feat_t_list]
@@ -467,7 +484,7 @@ def main():
     criterion_triplet = TripletMarginLoss(margin=0.3)
     criterion_cross = nn.CrossEntropyLoss(label_smoothing=0.1)
 
-    save_dir = Path(f"logs/train/resnet34/reid_MY-ARD_new_weight_yuan_0.05_0.05_0.60_0.30/five/market1501")
+    save_dir = Path(f"logs/train/resnet34/reid_MY-ARD_new_weight_yuan_0.05_0.05_0.60_0.30/market1501")
     save_dir.mkdir(parents=True, exist_ok=True)
 
     for epoch in range(1, max_epoch + 1):
